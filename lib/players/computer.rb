@@ -1,6 +1,6 @@
 module Players
   class Computer < Player
-    
+
     attr_accessor :board
 
     def initialize(board)
