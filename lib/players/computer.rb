@@ -39,7 +39,7 @@ module Players
     end
 
 
-    def self.corner(board)
+    def corner(board)
       if (board[0] == " ")
           0 + 1 #index 0 in the array (+1 for options)
       elsif (board[2] == " ")
