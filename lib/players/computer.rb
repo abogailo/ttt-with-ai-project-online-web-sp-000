@@ -1,11 +1,9 @@
 module Players
   class Computer < Player
-
-    attr_accessor :board
-
     def initialize(board)
       @board = board
     end
+    attr_accessor :board
 
     WIN_COMBINATIONS =
    [ [0,1,2], #across
@@ -68,7 +66,7 @@ module Players
       self.corner(board) #case to pick a corner section
     else
      input = POSSIBLE_MOVES.sample(1) #samples 1 valid input from the constant list of possible moves (in class player)
-     @board.valid_move?(input[0])? input[0] : input = POSSIBLE_MOVES.sample(1) #checks to see if the input (which is in an array form so need to pull out its value) is valid, if so => input value; else => chooses another input
+     board.valid_move?(input[0])? input[0] : input = POSSIBLE_MOVES.sample(1) #checks to see if the input (which is in an array form so need to pull out its value) is valid, if so => input value; else => chooses another input
     end
    end
 
