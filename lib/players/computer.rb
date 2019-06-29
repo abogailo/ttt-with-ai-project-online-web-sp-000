@@ -24,8 +24,8 @@ module Players
         end
       end
     end
- 
- 
+
+
     def self.corner(board)
       if (board[0] == " ")
           0 + 1 #index 0 in the array (+1 for options)
@@ -39,7 +39,7 @@ module Players
        nil #returns nil so the other cases could be met
       end
     end
- 
+
    def move(board)
     if (best_move(board) != nil) #case for a defensive move or to finish the game
       self.best_move(board)
