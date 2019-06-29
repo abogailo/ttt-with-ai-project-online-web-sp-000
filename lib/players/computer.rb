@@ -1,12 +1,12 @@
 module Players
   class Computer < Player
-    
+
     attr_accessor :board
 
     def initialize(board)
       @board = board
     end
-    
+
     WIN_COMBINATIONS =
    [ [0,1,2], #across
      [3,4,5],
