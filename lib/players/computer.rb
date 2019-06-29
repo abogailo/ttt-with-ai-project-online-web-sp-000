@@ -5,7 +5,7 @@ module Players
     board.valid_move?(input[0]) ? input[0] : input = POSSIBLE_MOVES.sample(1)
    end
 
-    def self.best_move(board)
+    def best_move(board)
       WIN_COMBINATIONS.detect do |position|  #checks all the combos to see if any player is close to a win. This could be an offensive or defensive move
         if board[position[0]] == " " && board[position[1]] == "X" && board[position[2]] == "X"
           return position[0] + 1 #added plus one because the options are 1-9
@@ -42,7 +42,7 @@ module Players
 
    def move(board)
     if (best_move(board) != nil) #case for a defensive move or to finish the game
-      self.best_move(board)
+      best_move(board)
     elsif (board[4] == " ") #case to always pick middle if it is blank
        4 + 1
     elsif (corner(board) != nil)
