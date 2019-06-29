@@ -1,17 +1,9 @@
 module Players
   class Computer < Player
-
-   WIN_COMBINATIONS =
-  [ [0,1,2], #across
-    [3,4,5],
-    [6,7,8],
-
-    [0,3,6], #down
-    [1,4,7],
-    [2,5,8],
-
-    [0,4,8], #diagonal
-    [6,4,2] ]
+    def move(board)
+    input = POSSIBLE_MOVES.sample(1)
+    board.valid_move?(input[0]) ? input[0] : input = POSSIBLE_MOVES.sample(1)
+   end
 
     def self.best_move(board)
       WIN_COMBINATIONS.detect do |position|  #checks all the combos to see if any player is close to a win. This could be an offensive or defensive move
@@ -32,8 +24,8 @@ module Players
         end
       end
     end
-
-
+ 
+ 
     def self.corner(board)
       if (board[0] == " ")
           0 + 1 #index 0 in the array (+1 for options)
@@ -47,7 +39,7 @@ module Players
        nil #returns nil so the other cases could be met
       end
     end
-
+ 
    def move(board)
     if (best_move(board) != nil) #case for a defensive move or to finish the game
       self.best_move(board)
@@ -61,4 +53,5 @@ module Players
     end
    end
 
+ end
 end
